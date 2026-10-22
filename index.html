@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabbir Hossain Muni | Academic Portfolio</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #3b82f6;
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.85rem 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .nav-container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero / Profile Header */
+    .hero {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.25rem;
+      display: flex;
+      gap: 2.25rem;
+      align-items: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .profile-pic {
+      width: 165px;
+      height: 165px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      flex-shrink: 0;
+      background-color: #e2e8f0;
+    }
+
+    .hero-info h1 {
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-contact {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.45rem 0.95rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text-dark);
+      background: #f1f5f9;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: #172554;
+    }
+
+    /* Section Styling */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.85rem 2.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Items (Education, Experience, Projects) */
+    .item {
+      margin-bottom: 1.5rem;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .item-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    .item-date {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .item-subtitle {
+      font-size: 0.95rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    ul.clean-list {
+      padding-left: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    ul.clean-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    /* Tags & Tech Stack */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      background: #eff6ff;
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.85rem;
+      font-size: 0.94rem;
+    }
+
+    .skill-box {
+      background: #f8fafc;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .skill-box strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    /* References Grid */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      font-size: 0.92rem;
+    }
+
+    .ref-card {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .ref-card strong {
+      font-size: 1rem;
+      color: var(--text-dark);
+      display: block;
+    }
+
+    .ref-role {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.35rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+      }
+      .hero-links {
+        justify-content: center;
+      }
+      .item-header {
+        flex-direction: column;
+      }
+      section {
+        padding: 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="nav-brand">Sabbir Hossain Muni</a>
+      <div class="nav-links">
+        <a href="#interests">Interests</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#grants">Grants</a>
+        <a href="#skills">Skills</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Profile Header -->
+    <header class="hero">
+      <img src="profile.jpg" alt="Sabbir Hossain Muni" class="profile-pic">
+      <div class="hero-info">
+        <h1>Sabbir Hossain Muni</h1>
+        <div class="hero-subtitle">Graduate Researcher (M.Sc. in CSE - Data Science, BUET) &amp; Data Associate at BIGD</div>
+        <div class="hero-contact">
+          📍 173/2, West-Agargaon, Dhaka, Bangladesh &nbsp;|&nbsp;
+          📞 (+880) 1907828557 &nbsp;|&nbsp;
+          ✉️ <a href="mailto:sabbirhossain0175@gmail.com" style="color: inherit;">sabbirhossain0175@gmail.com</a>
+        </div>
+        <div class="hero-links">
+          <a href="Sabbir_Hossain_Muni_CV.pdf" class="btn btn-primary" target="_blank">📄 Download CV (PDF)</a>
+          <a href="https://scholar.google.com" class="btn" target="_blank">🎓 Google Scholar</a>
+          <a href="https://linkedin.com" class="btn" target="_blank">💼 LinkedIn</a>
+          <a href="https://github.com" class="btn" target="_blank">💻 GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Research Interests -->
+    <section id="interests">
+      <h2>Research Interests</h2>
+      <ul class="clean-list">
+        <li><strong>Learning-based decision-making and control for mobility systems:</strong> traffic control, resource allocation, and fleet operations.</li>
+        <li><strong>Foundation models (LLMs and vision-language models):</strong> adapted to transportation tasks and operational decision support.</li>
+        <li><strong>Spatiotemporal forecasting and uncertainty quantification:</strong> and how predictions are used in operational decisions.</li>
+        <li><strong>Connected and automated vehicles:</strong> cooperative perception, prediction, and coordination under delayed or unreliable information.</li>
+        <li><strong>Trustworthy and responsible AI for mobility:</strong> safety, reliability, and fairness in automated decisions.</li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">M.Sc. in CSE (Data Science)</div>
+          <div class="item-date">Sept. 2024 – Present</div>
+        </div>
+        <div class="item-subtitle">Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh | CGPA: 3.30/4.00</div>
+        <ul class="clean-list">
+          <li><strong>Thesis Title:</strong> <em>A Multivariate Time Series Forecasting Framework for Sparse Traffic Violation Counts and Composition</em> (Working Title)</li>
+          <li><strong>Key Courses:</strong> Advanced Machine Learning (CSE 6512), Deep Learning (CSE 6709), Foundations of Data Science (CSE 5501), Artificial Intelligence and Machine Learning (CSE 5503), Natural Language Processing (CSE 6510), Data Mining (CSE 6506), Big Data Analytics (CSE 6514), Programming for Data Science (CSE 5502), Advanced Human Computer Interaction (CSE 6606).</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Bachelor of Urban and Regional Planning</div>
+          <div class="item-date">Mar. 2018 – May 2023</div>
+        </div>
+        <div class="item-subtitle">Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh | CGPA: 3.33/4.00 (3.50/4.00 in last 58 Credit Hours)</div>
+        <ul class="clean-list">
+          <li><strong>Thesis Title:</strong> <em>Perceived Service Quality of Rail Freight Transport in Bangladesh.</em></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Research and Work Experience -->
+    <section id="experience">
+      <h2>Research &amp; Work Experience</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Graduate Researcher (MS Thesis)</div>
+          <div class="item-date">Sept. 2024 – Present</div>
+        </div>
+        <div class="item-subtitle">Department of CSE, BUET, Dhaka, Bangladesh</div>
+        <ul class="clean-list">
+          <li>Developing a transformer-based multivariate time series framework for sparse multi-type event streams, factorizing prediction into total volume and event composition, with cross-category and multi-scale seasonal attention.</li>
+          <li>Designed a hierarchical signal structure for rare event types, motivated by an identifiability analysis of per-cell data support. It combines semantic type grouping in cross-category attention with a support-adaptive prior that weights local evidence against pooled signals.</li>
+          <li>Evaluating on 2.1M traffic violation records (Montgomery County, MD, 2012–2026) through component-wise ablations and a proper-scoring-rule protocol, after showing that rank metrics fail to detect severe miscalibration in sparse count forecasts.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Data Associate</div>
+          <div class="item-date">Oct. 2024 – Present</div>
+        </div>
+        <div class="item-subtitle">BRAC Institute of Governance and Development (BIGD), Dhaka, Bangladesh</div>
+        <ul class="clean-list">
+          <li>Building data pipelines and quality-control systems for multi-institution field studies, including Yale Y-RISE mental health research, a Danish Embassy-funded assessment of ~400 garment factories, and climate-resilience surveys.</li>
+          <li>Recovered a decade of microfinance records (300,000+ rows) locked in the obsolete Bijoy Bangla encoding, designing a batch ETL pipeline that decoded, restructured, and delivered them as analysis-ready data.</li>
+          <li>Built automation tooling for field operations: configurable Word/PDF/Excel document generation with cross-sheet QC formulas, SurveyCTO instruments, and print automation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Selected Projects -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Scale-Dependent Morphology and Context-Dependent Criticality in Dhaka's Road Network</div>
+          <div class="item-date">Mar. 2026 – Present</div>
+        </div>
+        <p style="font-size: 0.94rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Can map data tell a planned grid from organic street fabric, and does it change which intersections matter? Found structure is scale-dependent (visible at 400 m, not 1–2 km) and criticality context-dependent: whether busy junctions are single points of failure flips between organic and grid fabric. <a href="#" style="color: var(--primary); font-weight: 600;">[GitHub]</a>
+        </p>
+        <div class="tags">
+          <span class="tag">OSMnx</span>
+          <span class="tag">NetworkX</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Domain-Specific LLM Fine-Tuning</div>
+          <div class="item-date">Ongoing</div>
+        </div>
+        <p style="font-size: 0.94rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Can a small open LLM turn bilingual survey questionnaires into deployable XLSForm specifications? QLoRA fine-tuning of Qwen.
+        </p>
+        <div class="tags">
+          <span class="tag">Unsloth</span>
+          <span class="tag">Hugging Face (Transformers, PEFT, TRL)</span>
+          <span class="tag">bitsandbytes</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Dynamic Pricing &amp; Consumer Trend Analytics (Team of 2)</div>
+          <div class="item-date">Aug. 2026</div>
+        </div>
+        <p style="font-size: 0.94rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Do price cuts actually drive demand, and does the answer depend on how the data is aggregated? Serverless BigQuery pipeline over 25.6M price records comparing elasticity estimators. The answer depends on the estimator: pooled data shows almost no price response, within-product data a clear one. <a href="#" style="color: var(--primary); font-weight: 600;">[GitHub]</a>
+        </p>
+        <div class="tags">
+          <span class="tag">BigQuery</span>
+          <span class="tag">BigQuery ML</span>
+          <span class="tag">Looker Studio</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Streaming Data Analytics</div>
+          <div class="item-date">Jul. 2026</div>
+        </div>
+        <p style="font-size: 0.94rem; color: var(--text-muted); margin-top: 0.25rem;">
+          What does it take to keep market analytics continuously updated rather than run once? PySpark streaming on GCP Dataproc with a 19-task Airflow DAG for daily walk-forward forecasting. Found near-perfect feature collinearity made plain regression unstable, requiring Ridge regression. <a href="#" style="color: var(--primary); font-weight: 600;">[GitHub]</a>
+        </p>
+        <div class="tags">
+          <span class="tag">PySpark</span>
+          <span class="tag">GCP Dataproc</span>
+          <span class="tag">Apache Airflow</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Diagnosing a Time2Vec Transformer</div>
+          <div class="item-date">Sept. 2025</div>
+        </div>
+        <p style="font-size: 0.94rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Why does a Transformer lose to an LSTM and ARIMA on stock-return forecasting? Took the model apart component by component. Found its core parts were silently non-functional, so it never worked as a Transformer, a failure no accuracy table revealed. <a href="#" style="color: var(--primary); font-weight: 600;">[GitHub]</a>
+        </p>
+        <div class="tags">
+          <span class="tag">TensorFlow/Keras</span>
+          <span class="tag">ARIMA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul class="clean-list">
+        <li>
+          <strong>Muni, M.S.H.*</strong>, Khan, M.M.R.*, Zafri, N.M.* and Chowdhury, M.M.H., 2024. Relationships between service quality and customer satisfaction in rail freight transportation: A structural equation modeling approach. <em>Journal of Rail Transport Planning &amp; Management</em>, 32, p.100485. 
+          <a href="https://doi.org/10.1016/j.jrtpm.2024.100485" target="_blank" style="color: var(--primary); font-weight: 600;">https://doi.org/10.1016/j.jrtpm.2024.100485</a> <em>(*Equal contribution.)</em>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Research Grants & Awards -->
+    <section id="grants">
+      <h2>Research Grants &amp; Awards</h2>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Co-Principal Investigator (ML Workstream Lead), RIDGE Research Grant</div>
+          <div class="item-date">Mar. 2026 – Present</div>
+        </div>
+        <div class="item-subtitle">Dhaka, Bangladesh</div>
+        <ul class="clean-list">
+          <li>Leading the machine learning workstream of <em>"Optimizing Resource Allocation in Rural Bangladesh: A Hierarchical Machine Learning Based Tool to Minimize Targeting Errors in Food Insecurity"</em> (PI: Md. Anik Islam).</li>
+          <li>Managing project planning, budgeting, and resource allocation for the UK-funded grant (BIGD, CPD, RAPID, PRI; ~$8,000), one of 10 projects selected from 341 national applications.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Undergraduate Research Grant, RISE, BUET</div>
+        </div>
+        <ul class="clean-list">
+          <li>Awarded Tk. 74,868 (~$1,000) to fund the undergraduate thesis, which led to a journal publication.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <strong>Programming &amp; ML</strong>
+          C, Python (PyTorch, TensorFlow/Keras, scikit-learn, PySpark, LangChain)
+        </div>
+        <div class="skill-box">
+          <strong>Databases</strong>
+          SQL, Spark SQL
+        </div>
+        <div class="skill-box">
+          <strong>Cloud &amp; Pipelines</strong>
+          GCP (BigQuery, BigQuery ML, Dataproc), Apache Airflow
+        </div>
+        <div class="skill-box">
+          <strong>Tools &amp; Infrastructure</strong>
+          Git, Docker, Kubernetes
+        </div>
+        <div class="skill-box">
+          <strong>Data Analysis &amp; BI</strong>
+          Stata, Power BI
+        </div>
+        <div class="skill-box">
+          <strong>GIS &amp; Simulation</strong>
+          ArcGIS, QGIS, PTV Vissim, PTV Visum
+        </div>
+        <div class="skill-box">
+          <strong>Survey &amp; CAPI</strong>
+          SurveyCTO, oTree
+        </div>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section id="references">
+      <h2>References</h2>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <strong>Sukarna Barua</strong>
+          <div class="ref-role">MS Thesis Supervisor</div>
+          Associate Professor, Dept. of CSE, BUET<br>
+          <a href="mailto:sukarnabarua@cse.buet.ac.bd" style="color: var(--primary);">sukarnabarua@cse.buet.ac.bd</a>
+        </div>
+        <div class="ref-card">
+          <strong>Niaz Mahmud Zafri</strong>
+          <div class="ref-role">Undergraduate Thesis Supervisor</div>
+          Assistant Professor (On Leave), Dept. of URP, BUET; Doctoral Candidate, MIT<br>
+          <a href="mailto:zafri@urp.buet.ac.bd" style="color: var(--primary);">zafri@urp.buet.ac.bd</a>
+        </div>
+        <div class="ref-card">
+          <strong>Atonu Rabbani, PhD</strong>
+          <div class="ref-role">RIDGE Project Mentor</div>
+          Professor, Dept. of Economics, University of Dhaka<br>
+          <a href="mailto:atonu.rabbani@du.ac.bd" style="color: var(--primary);">atonu.rabbani@du.ac.bd</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Sabbir Hossain Muni. Hosted on GitHub Pages.
+  </footer>
+
+</body>
+</html>
